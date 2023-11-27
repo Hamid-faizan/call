@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from flask_sockets import Sockets
-
+from twilio.twiml.voice_response import VoiceResponse, Start
 import json
 import base64
 
@@ -17,7 +17,16 @@ def log(msg, *args):
 @app.route('/twiml', methods=['POST'])
 def return_twiml():
     print("POST TwiML")
-    return render_template('streams.xml')
+    
+
+    response = VoiceResponse()
+    start = Start()
+    start.stream(
+        name='Example Audio Stream', url='wss://mystream.ngrok.io/audiostream'
+    )
+    response.append(start)
+    
+    print(response)
 
 @sockets.route('/')
 def echo(ws):
