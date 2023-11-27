@@ -21,7 +21,7 @@ def return_twiml():
 
 @sockets.route('/')
 def echo(ws):
-    log("Connection accepted")
+    priint("Connection accepted")
     count = 0
     has_seen_media = False
     while not ws.closed:
@@ -32,20 +32,20 @@ def echo(ws):
 
         data = json.loads(message)
         if data['event'] == "connected":
-            log("Connected Message received", message)
+            print("Connected Message received", message)
         if data['event'] == "start":
-            log("Start Message received", message)
+            print("Start Message received", message)
         if data['event'] == "media":
             if not has_seen_media:
-                log("Media message", message)
-                log("Additional media messages from WebSocket are being suppressed....")
+                print("Media message", message)
+                prinnt("Additional media messages from WebSocket are being suppressed....")
                 has_seen_media = True
         if data['event'] == "closed":
-            log("Closed Message received", message)
+            print("Closed Message received", message)
             break
         count += 1
 
-    log("Connection closed. Received a total of {} messages".format(count))
+    print("Connection closed. Received a total of {} messages".format(count))
 
 
 if __name__ == '__main__':
