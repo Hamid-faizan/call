@@ -1,2 +1,3 @@
+gunicorn==20.0.4
 Flask==2.2.5
 Flask-Sockets==0.2.1
