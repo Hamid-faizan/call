@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
   <Start>
-    <Stream url="wss://call-dt8b.onrender.com/"></Stream>
+    <Stream url="https://call-dt8b.onrender.com/"></Stream>
   </Start>
   <Pause length="40"/>
 </Response>
