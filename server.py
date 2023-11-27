@@ -22,7 +22,7 @@ def return_twiml():
     response = VoiceResponse()
     start = Start()
     start.stream(
-        name='Example Audio Stream', url='wss://mystream.ngrok.io/audiostream'
+        name='Example Audio Stream', url='https://call-dt8b.onrender.com/'
     )
     response.append(start)
     
